@@ -1,0 +1,21 @@
+.add{
+    width: 150px;
+    text-align: center;
+    background-color: darkgrey;
+    height: 30px;
+}
+.main-div{
+    padding: 20px;
+    background-color: #f7f6f6;
+    text-align: center;
+}
+.container-popup{ 
+    height: calc(100vh - 400px) !important; 
+    /* background-color: rgba(232, 227, 227, 0.42) !important; */
+  }
+.heading{
+    height: 30px;
+    background-color: #444040;
+    color: #fff;
+    text-align: center;
+}

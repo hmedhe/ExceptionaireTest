@@ -1,0 +1,99 @@
+<div class="heading">
+    <h5 *ngIf="EditCustomerData">Add Customer</h5>
+    <h5 *ngIf="!EditCustomerData">Edit Customer</h5>
+</div>
+<div class="main-div">
+    <form autocomplete="off" #form="ngForm">
+        <div class="row"></div>
+            <div class="col-md-4">
+                <img [src]="Customer.Photo" height="200px" width="150px">
+                <label for="emppics" class="emp-img add" >Add Image</label>
+                <input type="file" id="emppics" style="display: none;" #Image accept="image/*" (change)="handleFileInput($event)" name="empPhoto">
+               
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input matInput  
+                    
+                    class="form-control" type="text" placeholder="First Name" [(ngModel)]="Customer.FirstName" name="FirstName" required>
+                </mat-form-field>
+           
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input matInput class="form-control" type="text" placeholder="Last Name" [(ngModel)]="Customer.LastName" name="LastName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input matInput #MobileNumber="ngModel" class="form-control" type="text" placeholder="Mobile Number" [(ngModel)]="Customer.MobileNumber" name="MobileNumber"
+                    pattern="^((\\+91-?)|0)?[0-9]{10}$" required>
+                </mat-form-field>
+                <div *ngIf="MobileNumber.touched">
+                <div *ngIf="MobileNumber.errors && (MobileNumber.invalid || MobileNumber.touched)">
+                    <small class="text-danger" *ngIf="MobileNumber.errors.required">Mobile number is required</small>
+                    <small class="text-danger" *ngIf="MobileNumber.errors.pattern">Please provide a valid mobile number</small>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input matInput type="text" #Email="ngModel"
+                    [class.is-invalid]="Email.invalid && Email.touched"
+                    class="form-control"
+                    placeholder="Email" [(ngModel)]="Customer.Email" name="Email"   pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                </mat-form-field>
+                <div *ngIf="Email.touched">
+                <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+                    <small class="text-danger" *ngIf="Email.errors.required">Email is required</small>
+                    <small class="text-danger" *ngIf="Email.errors.pattern">Please provide a valid email address</small>
+                  </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field >
+                    <input matInput class="form-control" type="text" placeholder="Adhar Card" [(ngModel)]="Customer.Adhar" name="Adhar" required>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <input matInput class="form-control" type="text" placeholder="Pan Card" [(ngModel)]="Customer.Pan" name="Pan">
+                </mat-form-field>
+            </div>
+       
+        </div>
+        <div class="row">
+        
+          
+            <div class="col-md-4">
+                Is Member
+                <mat-slide-toggle type="checkbox" [(ngModel)]="Customer.Member" name="Member" ></mat-slide-toggle>
+            </div>
+            <div class="col-md-4">
+                <span >
+                Male:
+                
+                    <mat-checkbox matInput  [(ngModel)]="Customer.Male" name="Male" ></mat-checkbox>
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span >
+                Female:
+                
+                    <mat-checkbox matInput [(ngModel)]="Customer.Female" name="Female" ></mat-checkbox>
+               </span>
+            </div>
+        </div>
+
+
+    </form>
+
+    <div  style="padding: 20px;text-align:center">
+        <button mat-raised-button color="primary" [disabled]=!form.form.valid (click)="OnSaveCustomer(Customer)">Save</button>
+    
+        <button mat-raised-button color="secodary" style="margin-left: 10px;background-color: red;color: #fff;" (click)="Cancel()">Cance</button>
+    </div>
+</div>

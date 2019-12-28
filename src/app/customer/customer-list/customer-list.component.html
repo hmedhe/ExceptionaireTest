@@ -1,0 +1,90 @@
+
+<mat-card style=" text-align: end;">
+ 
+      
+    <button mat-button  (click)="Logout()">
+        
+    
+        <i class="material-icons" style="font-size: -webkit-xxx-large;">
+            cancel
+            </i>
+         
+    </button>
+
+</mat-card>
+
+<mat-card style=" text-align: end;">
+ 
+      
+          <button mat-button  (click)="AddCustomer()">
+              
+            <i class="material-icons" style="font-size: -webkit-xxx-large;">
+                add_circle
+                </i>
+               
+          </button>
+     
+</mat-card>
+ <div class="container">
+    <div class="row" *ngFor="let customer of CustomerData">
+        <mat-card>
+            
+    <img src="{{customer.Photo}}" height="200px" width="150px">
+<div style="height: 200px;">
+   <h5>Name: {{customer.FirstName}} {{customer.LastName}}</h5>
+
+   <h5>Contact no: {{customer.MobileNumber}}</h5>
+
+   <h5>E-mail: {{customer.Email}}</h5>
+
+   <h5>
+       <span *ngIf="customer.Male == true">
+       Gender: Male
+       </span>
+       <span *ngIf="customer.Female == true">
+        Gender: Female
+        </span>
+    </h5>
+</div>
+    <div  style="padding: 20px;text-align:center">
+        <button mat-raised-button color="primary"  (click)="EditCustomer(customer)">View/Edit</button>
+    </div>
+    </mat-card>
+    </div> 
+</div>
+
+
+<!-- <div class="app flex-row align-items-center" style="padding: 20px;">   
+    <div class="container"> 
+        <div class="card-deck row">
+            <div class="card col-md-6" *ngFor="let customer of CustomerData">
+                <div class="card">
+                    <mat-card >
+           
+                        <img src="{{customer.Photo}}" height="200px" width="150px">
+                        <div style="height: 210px;">
+                       <h5>Name: {{customer.FirstName}} {{customer.LastName}}</h5>
+                    
+                       <h5>Contact no: {{customer.MobileNumber}}</h5>
+                    
+                       <h5>E-mail: {{customer.Email}}</h5>
+                    
+                       <h5>
+                           <span *ngIf="customer.Male == true">
+                           Gender: Male
+                           </span>
+                           <span *ngIf="customer.Female == true">
+                            Gender: Female
+                            </span>
+                        </h5>
+                       </div>
+                        <div  style="padding: 20px;text-align:center">
+                            <button mat-raised-button color="primary"  (click)="EditCustomer(customer)">View/Edit</button>
+                        </div>
+                        </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+

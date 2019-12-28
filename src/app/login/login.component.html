@@ -1,0 +1,22 @@
+
+<h5 style="text-align: center;padding: 10px;">Harshal's Test</h5>
+
+<div>
+<div class="login">
+    <mat-card class="center">
+        <h5>Login</h5>
+        <form>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Usesrname" [(ngModel)]="UserId" name="UserId">
+                </mat-form-field>
+            </div>
+
+        </form>
+    </mat-card>
+</div>
+<div  style="padding: 20px;text-align:center">
+    <button mat-raised-button color="primary" (click)="onClick(UserId)">Login</button>
+
+</div>
+</div>
